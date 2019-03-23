@@ -1,0 +1,26 @@
+
+pipeline {
+	agent any 
+	stages {
+stage(‘Build’) {
+	steps {
+		sh 'echo "Hello World fro build stage"'
+		sh '''
+		   echo "This is from Multiple steps section in Jenkins file"
+		   ls -lrt
+		   uname -a
+		   ping -c20 google.co.in
+		   df -h
+		   env
+		   ls
+		'''
+	}
+	}
+	stage (‘Test’) {
+	steps {
+		sh 'echo "Hello World from test stage"'
+	}
+	}
+}
+}  
+    
